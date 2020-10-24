@@ -1,1 +1,25 @@
-{% extends 'base.html' %} {% block content %} {% endblock%}
+{% extends 'base.html' %} {% block style %} {{ block.super }} {% endblock style%} {% block content %}
+<h2 class="text-center">Personal Gallery</h2>
+{% if images %}
+<div class="row">
+    {% for image in images%}
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem; height: 22rem;">
+            <img class="card-img-top" src="{{image.image.url}}" style="height: 10rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ image.title }}</h5>
+                <p class="card-text">{{ image.description }}</p>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    {% endfor%}
+</div>
+{% endif %} {% endblock%}

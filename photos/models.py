@@ -7,3 +7,8 @@ class Image(models.Model):
     description = models.TextField()
     image = CloudinaryField('image')
     
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = "Images"
