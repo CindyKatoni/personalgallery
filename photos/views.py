@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from photos.models import Photos
+from photos.models import Image
 
 # Create your views here.
 
 def photo_index(request):
-    photos = Photos.objects.all()
+    images = Image.objects.all()
     context = {
-        'photos':photos
+        'images':images
     }
     return render(request, 'photo_index.html', context)
 
