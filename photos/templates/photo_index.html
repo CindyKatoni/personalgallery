@@ -8,17 +8,17 @@
             <img class="card-img-top" src="{{image.image.url}}" style="height: 10rem;">
             <div class="card-body">
                 <h5 class="card-title">{{ image.title }}</h5>
-                <p class="card-text">{{ image.description }}</p>
+
 
             </div>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal{{image.id}}">
                 More details
               </button>
         </div>
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="myModal{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -28,8 +28,19 @@
           </button>
                 </div>
                 <div class="modal-body">
-                    <a href=""></a>
+                    <p>{{ image.description }}</p>
+                    <input class="form-control" type="text" value="{{image.image.url}}" id="myInput" style="color: black; background-color: transparent; font-size: 16px;">
+                    <button type="button" style="width: 150px;" class="btn btn-dark-green" onclick="myFunction()">Copy Url</button>
                 </div>
+                <script>
+                    function myFunction() {
+                        var copyText = document.getElementById("myInput");
+                        copyText.select();
+                        document.execCommand("Copy");
+                    }
+                </script>
+
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
